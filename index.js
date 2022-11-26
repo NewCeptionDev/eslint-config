@@ -1026,18 +1026,14 @@ module.exports = {
 
         'no-undefined': 'off',
 
-        'no-unused-vars': ['error', {
-            vars: "all",
-            args: "all",
-            ignoreRestSiblings: false,
-            caughtErrors: "all",
-            caughtErrorsIgnorePattern: "^ignore$"
-        }],
+        'no-unused-vars': 'off',
 
         '@typescript-eslint/no-unused-vars': ['error', {
             vars: 'all',
             args: 'after-used',
-            ignoreRestSiblings: true
+            ignoreRestSiblings: true,
+            caughtErrors: "all",
+            caughtErrorsIgnorePattern: "^ignore$"
         }],
 
         'no-use-before-define': 'off',
