@@ -1,0 +1,27 @@
+{
+  "name": "@newceptiondev/eslint-config",
+  "version": "1.0.0",
+  "description": "ESLint Config",
+  "main": "index.js",
+  "devDependencies": {
+    "@typescript-eslint/parser": ">= 5.42.1",
+    "@typescript-eslint/eslint-plugin": ">= 5.42.1"
+  },
+  "peerDependencies": {
+    "eslint": ">= 8.27.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewCeptionDev/eslint-config.git"
+  },
+  "keywords": [
+    "ESLint",
+    "Config"
+  ],
+  "author": "NewCeptionDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NewCeptionDev/eslint-config/issues"
+  },
+  "homepage": "https://github.com/NewCeptionDev/eslint-config#readme"
+}
