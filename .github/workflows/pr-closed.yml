@@ -1,0 +1,51 @@
+name: "PR Closed"
+
+on  :
+  pull_request:
+    branches:
+      - main
+    types   :
+      - closed
+
+jobs:
+  merge_pr:
+    name   : "PR Merged"
+    if     : github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps  :
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+            token: ${{ secrets.FORCE_PUSH_SECRET }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache       : "npm"
+
+      - name: Git Configuration
+        run : git config --global user.name 'Github Actions'
+
+      - name: Apply version bump (major)
+        if  : contains(github.event.pull_request.labels.*.name, 'major')
+        run : npm version major
+
+      - name: Apply version bump (minor)
+        if  : contains(github.event.pull_request.labels.*.name, 'minor')
+        run : npm version minor
+
+      - name: Apply version bump (patch)
+        if  : contains(github.event.pull_request.labels.*.name, 'patch')
+        run : npm version patch
+
+      - name: Git push version bump
+        run : git push --follow-tags --force origin main
+
+      - name: Set local variable with new version
+        run : echo "NEW_VERSION=$(npm pkg get version | sed 's/^"\(.*\)"$/\1/')" >> $GITHUB_ENV
+
+      - name: Comment new version on PR
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: 🚀 Version bumped to ${{ env.NEW_VERSION }} 🚀
