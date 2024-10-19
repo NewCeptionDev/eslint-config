@@ -2,13 +2,14 @@
   "name": "@newceptiondev/eslint-config",
   "version": "1.0.2",
   "description": "ESLint Config",
+  "type": "module",
   "main": "index.js",
   "dependencies": {
-    "@typescript-eslint/parser": ">= 5.42.1",
-    "@typescript-eslint/eslint-plugin": ">= 5.42.1"
+    "typescript-eslint": ">= 8.10.0",
+    "@stylistic/eslint-plugin-ts": ">= 2.9.0"
   },
   "peerDependencies": {
-    "eslint": ">= 8.27.0"
+    "eslint": ">= 9.13.0"
   },
   "repository": {
     "type": "git",

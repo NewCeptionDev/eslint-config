@@ -2,1044 +2,1325 @@
 // You can find the Airbnb config here: https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base
 // The additional typescript config here: https://github.com/iamturns/eslint-config-airbnb-typescript
 
-module.exports = {
-    root: true,
-    parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint'],
-    parserOptions: {
-        project: ['./tsconfig.json'],
+import ts from "typescript-eslint";
+import stylistic from "@stylistic/eslint-plugin-ts";
+
+export default [
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    plugins: {
+      "@typescript-eslint": ts.plugin,
+      "@stylistic/ts": stylistic,
+    },
+    languageOptions: {
+      parser: ts.parser,
+      ecmaVersion: "latest",
+      parserOptions: {
+        project: ["./tsconfig.json"],
+      },
     },
     rules: {
-        'accessor-pairs': 'off',
+      "accessor-pairs": "off",
 
-        'array-callback-return': ['error', {
-            allowImplicit: true,
-            checkForEach: false
-        }],
+      "array-callback-return": [
+        "error",
+        {
+          allowImplicit: true,
+          checkForEach: false,
+        },
+      ],
 
-        'block-scoped-var': 'error',
+      "block-scoped-var": "error",
 
-        complexity: 'off',
+      complexity: "off",
 
-        'class-methods-use-this': 'off',
+      "class-methods-use-this": "off",
 
-        'consistent-return': ['error', {
-            treatUndefinedAsUnspecified: false
-        }],
+      "consistent-return": [
+        "error",
+        {
+          treatUndefinedAsUnspecified: false,
+        },
+      ],
 
-        curly: ['error', 'all'],
+      curly: ["error", "all"],
 
-        'default-case': ['error', {
-            commentPattern: '^no default$'
-        }],
+      "default-case": [
+        "error",
+        {
+          commentPattern: "^no default$",
+        },
+      ],
 
-        'default-case-last': 'error',
+      "default-case-last": "error",
 
-        'default-param-last': 'off',
+      "default-param-last": "off",
 
-        '@typescript-eslint/default-param-last': 'error',
+      "@typescript-eslint/default-param-last": "error",
 
-        'dot-notation': 'off',
+      "dot-notation": "off",
 
-        '@typescript-eslint/dot-notation': ['error', {
-            allowKeywords: true
-        }],
+      "@typescript-eslint/dot-notation": [
+        "error",
+        {
+          allowKeywords: true,
+        },
+      ],
 
-        'dot-location': ['error', 'property'],
+      "dot-location": ["error", "property"],
 
-        eqeqeq: ['error', 'always', {
-            null: 'ignore'
-        }],
+      eqeqeq: [
+        "error",
+        "always",
+        {
+          null: "ignore",
+        },
+      ],
 
-        'grouped-accessor-pairs': ['error', 'getBeforeSet'],
+      "grouped-accessor-pairs": ["error", "getBeforeSet"],
 
-        'guard-for-in': 'error',
+      "guard-for-in": "error",
 
-        'max-classes-per-file': ['error', 1],
+      "max-classes-per-file": ["error", 1],
 
-        'no-alert': 'warn',
+      "no-alert": "warn",
 
-        'no-caller': 'error',
+      "no-caller": "error",
 
-        'no-case-declarations': 'off',
+      "no-case-declarations": "off",
 
-        'no-constructor-return': 'error',
+      "no-constructor-return": "error",
 
-        'no-div-regex': 'off',
+      "no-div-regex": "off",
 
-        'no-else-return': ['error', {
-            allowElseIf: true
-        }],
+      "no-else-return": [
+        "error",
+        {
+          allowElseIf: true,
+        },
+      ],
 
-        'no-empty-function': 'error',
+      "no-empty-function": "error",
 
-        '@typescript-eslint/no-empty-function': ['error', {
-            allow: [
-                'arrowFunctions',
-                'functions',
-                'methods',
-            ]
-        }],
+      "@typescript-eslint/no-empty-function": [
+        "error",
+        {
+          allow: ["arrowFunctions", "functions", "methods"],
+        },
+      ],
 
-        'no-empty-pattern': 'error',
+      "no-empty-pattern": "error",
 
-        'no-eq-null': 'off',
+      "no-eq-null": "off",
 
-        'no-eval': ['error', {
-            allowIndirect: false
-        }],
+      "no-eval": [
+        "error",
+        {
+          allowIndirect: false,
+        },
+      ],
 
-        'no-extend-native': 'error',
+      "no-extend-native": "error",
 
-        'no-extra-bind': 'error',
+      "no-extra-bind": "error",
 
-        'no-extra-label': 'error',
+      "no-extra-label": "error",
 
-        'no-fallthrough': 'error',
+      "no-fallthrough": "error",
 
-        'no-floating-decimal': 'error',
+      "no-floating-decimal": "error",
 
-        'no-global-assign': 'error',
+      "no-global-assign": "error",
 
-        'no-native-reassign': 'off',
+      "no-native-reassign": "off",
 
-        'no-implicit-coercion': 'off',
+      "no-implicit-coercion": "off",
 
-        'no-implicit-globals': 'off',
+      "no-implicit-globals": "off",
 
-        'no-implied-eval': 'off',
+      "no-implied-eval": "off",
 
-        '@typescript-eslint/no-implied-eval': 'error',
+      "@typescript-eslint/no-implied-eval": "error",
 
-        'no-invalid-this': 'off',
-
-        'no-iterator': 'error',
-
-        'no-labels': ['error', {
-            allowLoop: false,
-            allowSwitch: false
-        }],
-
-        'no-lone-blocks': 'error',
-
-        'no-loop-func': 'off',
-
-        '@typescript-eslint/no-loop-func': 'error',
-
-        'no-magic-numbers': 'off',
-
-        '@typescript-eslint/no-magic-numbers': 'off',
+      "no-invalid-this": "off",
 
-        'no-multi-spaces': ['error', {
-            ignoreEOLComments: false,
-        }],
+      "no-iterator": "error",
+
+      "no-labels": [
+        "error",
+        {
+          allowLoop: false,
+          allowSwitch: false,
+        },
+      ],
+
+      "no-lone-blocks": "error",
+
+      "no-loop-func": "off",
+
+      "@typescript-eslint/no-loop-func": "error",
+
+      "no-magic-numbers": "off",
+
+      "@typescript-eslint/no-magic-numbers": "off",
+
+      "no-multi-spaces": [
+        "error",
+        {
+          ignoreEOLComments: false,
+        },
+      ],
+
+      "no-multi-str": "error",
+
+      "no-new": "error",
+
+      "no-new-func": "error",
+
+      "no-new-wrappers": "error",
+
+      "no-nonoctal-decimal-escape": "error",
+
+      "no-octal": "error",
+
+      "no-octal-escape": "error",
+
+      "no-param-reassign": [
+        "error",
+        {
+          props: true,
+          ignorePropertyModificationsFor: [
+            "acc", // for reduce accumulators
+            "accumulator", // for reduce accumulators
+            "e", // for e.returnvalue
+            "ctx", // for Koa routing
+            "context", // for Koa routing
+            "req", // for Express requests
+            "request", // for Express requests
+            "res", // for Express responses
+            "response", // for Express responses
+            "$scope", // for Angular 1 scopes
+            "staticContext", // for ReactRouter context
+          ],
+        },
+      ],
+
+      "no-proto": "error",
+
+      "no-redeclare": "off",
+
+      "@typescript-eslint/no-redeclare": [
+        "error",
+        {
+          builtinGlobals: true,
+        },
+      ],
 
-        'no-multi-str': 'error',
+      "no-restricted-properties": [
+        "error",
+        {
+          object: "arguments",
+          property: "callee",
+          message: "arguments.callee is deprecated",
+        },
+        {
+          object: "global",
+          property: "isFinite",
+          message: "Please use Number.isFinite instead",
+        },
+        {
+          object: "self",
+          property: "isFinite",
+          message: "Please use Number.isFinite instead",
+        },
+        {
+          object: "window",
+          property: "isFinite",
+          message: "Please use Number.isFinite instead",
+        },
+        {
+          object: "global",
+          property: "isNaN",
+          message: "Please use Number.isNaN instead",
+        },
+        {
+          object: "self",
+          property: "isNaN",
+          message: "Please use Number.isNaN instead",
+        },
+        {
+          object: "window",
+          property: "isNaN",
+          message: "Please use Number.isNaN instead",
+        },
+        {
+          property: "__defineGetter__",
+          message: "Please use Object.defineProperty instead.",
+        },
+        {
+          property: "__defineSetter__",
+          message: "Please use Object.defineProperty instead.",
+        },
+      ],
 
-        'no-new': 'error',
+      "no-return-assign": ["error", "always"],
 
-        'no-new-func': 'error',
+      "no-return-await": "off",
 
-        'no-new-wrappers': 'error',
+      "@typescript-eslint/return-await": "error",
 
-        'no-nonoctal-decimal-escape': 'error',
+      "no-script-url": "error",
 
-        'no-octal': 'error',
+      "no-self-assign": [
+        "error",
+        {
+          props: true,
+        },
+      ],
 
-        'no-octal-escape': 'error',
+      "no-self-compare": "error",
 
-        'no-param-reassign': ['error', {
-            props: true,
-            ignorePropertyModificationsFor: [
-                'acc', // for reduce accumulators
-                'accumulator', // for reduce accumulators
-                'e', // for e.returnvalue
-                'ctx', // for Koa routing
-                'context', // for Koa routing
-                'req', // for Express requests
-                'request', // for Express requests
-                'res', // for Express responses
-                'response', // for Express responses
-                '$scope', // for Angular 1 scopes
-                'staticContext', // for ReactRouter context
-            ]
-        }],
+      "no-sequences": [
+        "error",
+        {
+          allowInParentheses: false,
+        },
+      ],
 
-        'no-proto': 'error',
+      "no-throw-literal": "off",
 
-        'no-redeclare': 'off',
+      "@typescript-eslint/only-throw-error": "error",
 
-        '@typescript-eslint/no-redeclare': ['error', {
-            builtinGlobals: true
-        }],
+      "no-unmodified-loop-condition": "error",
 
-        'no-restricted-properties': ['error', {
-            object: 'arguments',
-            property: 'callee',
-            message: 'arguments.callee is deprecated',
-        }, {
-            object: 'global',
-            property: 'isFinite',
-            message: 'Please use Number.isFinite instead',
-        }, {
-            object: 'self',
-            property: 'isFinite',
-            message: 'Please use Number.isFinite instead',
-        }, {
-            object: 'window',
-            property: 'isFinite',
-            message: 'Please use Number.isFinite instead',
-        }, {
-            object: 'global',
-            property: 'isNaN',
-            message: 'Please use Number.isNaN instead',
-        }, {
-            object: 'self',
-            property: 'isNaN',
-            message: 'Please use Number.isNaN instead',
-        }, {
-            object: 'window',
-            property: 'isNaN',
-            message: 'Please use Number.isNaN instead',
-        }, {
-            property: '__defineGetter__',
-            message: 'Please use Object.defineProperty instead.',
-        }, {
-            property: '__defineSetter__',
-            message: 'Please use Object.defineProperty instead.',
-        }],
+      "no-unused-expressions": "off",
 
-        'no-return-assign': ['error', 'always'],
+      "@typescript-eslint/no-unused-expressions": [
+        "error",
+        {
+          allowShortCircuit: false,
+          allowTernary: false,
+          allowTaggedTemplates: false,
+          enforceForJSX: false,
+        },
+      ],
 
-        'no-return-await': 'off',
+      "no-unused-labels": "error",
 
-        '@typescript-eslint/return-await': 'error',
+      "no-useless-call": "warn",
 
-        'no-script-url': 'error',
+      "no-useless-catch": "error",
 
-        'no-self-assign': ['error', {
-            props: true,
-        }],
+      "no-useless-concat": "error",
 
-        'no-self-compare': 'error',
+      "no-useless-escape": "error",
 
-        'no-sequences': ['error', {
-            allowInParentheses: false
-        }],
+      "no-useless-return": "error",
 
-        'no-throw-literal': 'off',
+      "no-void": [
+        "error",
+        {
+          allowAsStatement: false,
+        },
+      ],
 
-        '@typescript-eslint/no-throw-literal': 'error',
+      "no-warning-comments": "off",
 
-        'no-unmodified-loop-condition': 'error',
+      "no-with": "error",
 
-        'no-unused-expressions': 'off',
+      "prefer-promise-reject-errors": [
+        "error",
+        {
+          allowEmptyReject: true,
+        },
+      ],
 
-        '@typescript-eslint/no-unused-expressions': ['error', {
-            allowShortCircuit: false,
-            allowTernary: false,
-            allowTaggedTemplates: false,
-            enforceForJSX: false
-        }],
+      "prefer-named-capture-group": "off",
 
-        'no-unused-labels': 'error',
+      "prefer-object-has-own": "error",
 
-        'no-useless-call': 'warn',
+      "prefer-regex-literals": [
+        "error",
+        {
+          disallowRedundantWrapping: true,
+        },
+      ],
 
-        'no-useless-catch': 'error',
+      radix: ["error", "always"],
 
-        'no-useless-concat': 'error',
+      "require-await": "off",
 
-        'no-useless-escape': 'error',
+      "@typescript-eslint/require-await": "warn",
 
-        'no-useless-return': 'error',
+      "require-unicode-regexp": "off",
 
-        'no-void': ['error', {
-            allowAsStatement: false
-        }],
+      "vars-on-top": "error",
 
-        'no-warning-comments': 'off',
+      "wrap-iife": [
+        "error",
+        "outside",
+        {
+          functionPrototypeMethods: false,
+        },
+      ],
 
-        'no-with': 'error',
+      yoda: ["error", "never"],
 
-        'prefer-promise-reject-errors': ['error', {
-            allowEmptyReject: true
-        }],
+      "for-direction": "error",
 
-        'prefer-named-capture-group': 'off',
+      "getter-return": "off",
 
-        'prefer-object-has-own': 'error',
+      "no-async-promise-executor": "error",
 
-        'prefer-regex-literals': ['error', {
-            disallowRedundantWrapping: true,
-        }],
+      "no-await-in-loop": "error",
 
-        radix: ['error', 'always'],
+      "no-compare-neg-zero": "error",
 
-        'require-await': 'off',
+      "no-cond-assign": ["error", "always"],
 
-        '@typescript-eslint/require-await': 'warn',
+      "no-console": "warn",
 
-        'require-unicode-regexp': 'off',
+      "no-constant-binary-expression": "warn",
 
-        'vars-on-top': 'error',
+      "no-constant-condition": [
+        "error",
+        {
+          checkLoops: true,
+        },
+      ],
 
-        'wrap-iife': ['error', 'outside', {
-            functionPrototypeMethods: false
-        }],
+      "no-control-regex": "error",
 
-        yoda: ['error', 'never'],
+      "no-debugger": "error",
 
-        'for-direction': 'error',
+      "no-dupe-args": "off",
 
-        'getter-return': 'off',
+      "no-dupe-else-if": "error",
 
-        'no-async-promise-executor': 'error',
+      "no-dupe-keys": "off",
 
-        'no-await-in-loop': 'error',
+      "no-duplicate-case": "error",
 
-        'no-compare-neg-zero': 'error',
+      "no-empty": [
+        "error",
+        {
+          allowEmptyCatch: false,
+        },
+      ],
 
-        'no-cond-assign': ['error', 'always'],
+      "no-empty-character-class": "error",
 
-        'no-console': 'warn',
+      "no-ex-assign": "error",
 
-        'no-constant-binary-expression': 'warn',
+      "no-extra-boolean-cast": [
+        "error",
+        {
+          enforceForLogicalOperands: true,
+        },
+      ],
 
-        'no-constant-condition': ['error', {
-            checkLoops: true
-        }],
+      "no-extra-parens": "off",
 
-        'no-control-regex': 'error',
+      "@stylistic/ts/no-extra-parens": "off",
 
-        'no-debugger': 'error',
+      "no-extra-semi": "off",
 
-        'no-dupe-args': 'off',
+      "@stylistic/ts/no-extra-semi": "error",
 
-        'no-dupe-else-if': 'error',
+      "no-func-assign": "error",
 
-        'no-dupe-keys': 'off',
+      "no-import-assign": "error",
 
-        'no-duplicate-case': 'error',
+      "no-inner-declarations": ["error", "functions"],
 
-        'no-empty': ['error', {
-            allowEmptyCatch: false
-        }],
+      "no-invalid-regexp": "error",
 
-        'no-empty-character-class': 'error',
+      "no-irregular-whitespace": [
+        "error",
+        {
+          skipStrings: true,
+          skipComments: true,
+          skipRegExps: true,
+          skipTemplates: true,
+        },
+      ],
 
-        'no-ex-assign': 'error',
+      "no-loss-of-precision": "warn",
 
-        'no-extra-boolean-cast': ['error', {
-            enforceForLogicalOperands: true
-        }],
+      "@typescript-eslint/no-loss-of-precision": "error",
 
-        'no-extra-parens': 'off',
+      "no-misleading-character-class": "error",
 
-        '@typescript-eslint/no-extra-parens': 'off',
+      "no-obj-calls": "error",
 
-        'no-extra-semi': 'off',
+      "no-promise-executor-return": "error",
 
-        '@typescript-eslint/no-extra-semi': 'error',
+      "no-prototype-builtins": "error",
 
-        'no-func-assign': 'error',
+      "no-regex-spaces": "error",
 
-        'no-import-assign': 'error',
+      "no-setter-return": "error",
 
-        'no-inner-declarations': ['error', 'functions'],
+      "no-sparse-arrays": "error",
 
-        'no-invalid-regexp': 'error',
+      "no-template-curly-in-string": "error",
 
-        'no-irregular-whitespace': ['error', {
-            skipStrings: true,
-            skipComments: true,
-            skipRegExps: true,
-            skipTemplates: true
-        }],
+      "no-unexpected-multiline": "error",
 
-        'no-loss-of-precision': 'warn',
+      "no-unreachable": "error",
 
-        '@typescript-eslint/no-loss-of-precision': 'error',
+      "no-unreachable-loop": "error",
 
-        'no-misleading-character-class': 'error',
+      "no-unsafe-finally": "error",
 
-        'no-obj-calls': 'error',
+      "no-unsafe-negation": "error",
 
-        'no-promise-executor-return': 'error',
+      "no-unsafe-optional-chaining": [
+        "error",
+        {
+          disallowArithmeticOperators: true,
+        },
+      ],
 
-        'no-prototype-builtins': 'error',
+      "no-unused-private-class-members": "off",
 
-        'no-regex-spaces': 'error',
+      "no-useless-backreference": "error",
 
-        'no-setter-return': 'error',
+      "no-negated-in-lhs": "off",
 
-        'no-sparse-arrays': 'error',
+      "require-atomic-updates": [
+        "warn",
+        {
+          allowProperties: false,
+        },
+      ],
 
-        'no-template-curly-in-string': 'error',
+      "use-isnan": [
+        "error",
+        {
+          enforceForSwitchCase: true,
+          enforceForIndexOf: true,
+        },
+      ],
 
-        'no-unexpected-multiline': 'error',
+      "valid-jsdoc": "off",
 
-        'no-unreachable': 'error',
+      "valid-typeof": [
+        "error",
+        {
+          requireStringLiterals: true,
+        },
+      ],
 
-        'no-unreachable-loop': 'error',
+      "arrow-body-style": [
+        "error",
+        "as-needed",
+        {
+          requireReturnForObjectLiteral: false,
+        },
+      ],
 
-        'no-unsafe-finally': 'error',
+      "arrow-parens": ["error", "as-needed"],
 
-        'no-unsafe-negation': 'error',
+      "arrow-spacing": [
+        "error",
+        {
+          before: true,
+          after: true,
+        },
+      ],
 
-        'no-unsafe-optional-chaining': ['error', {
-            disallowArithmeticOperators: true
-        }],
+      "constructor-super": "off",
 
-        'no-unused-private-class-members': 'off',
+      "generator-star-spacing": [
+        "error",
+        {
+          before: false,
+          after: true,
+        },
+      ],
 
-        'no-useless-backreference': 'error',
+      "no-class-assign": "error",
 
-        'no-negated-in-lhs': 'off',
+      "no-confusing-arrow": [
+        "error",
+        {
+          allowParens: true,
+        },
+      ],
 
-        'require-atomic-updates': ['warn', {
-            allowProperties: false
-        }],
+      "no-const-assign": "off",
 
-        'use-isnan': ['error', {
-            "enforceForSwitchCase": true,
-            "enforceForIndexOf": true
-        }],
+      "no-dupe-class-members": "off",
 
-        'valid-jsdoc': 'off',
+      "@typescript-eslint/no-dupe-class-members": "off",
 
-        'valid-typeof': ['error', {
-            requireStringLiterals: true
-        }],
+      "no-duplicate-imports": "error",
 
-        'arrow-body-style': ['error', 'as-needed', {
-            requireReturnForObjectLiteral: false,
-        }],
+      "no-new-symbol": "error",
 
-        'arrow-parens': ['error', 'as-needed'],
+      "no-restricted-exports": [
+        "error",
+        {
+          restrictedNamedExports: [
+            "default", // use `export default` to provide a default export
+            "then", // this will cause tons of confusion when your module is dynamically `import()`ed, and will break in most node ESM versions
+          ],
+        },
+      ],
 
-        'arrow-spacing': ['error', {
-            before: true,
-            after: true
-        }],
+      "no-restricted-imports": "off",
 
-        'constructor-super': 'off',
+      "no-this-before-super": "error",
 
-        'generator-star-spacing': ['error', {
-            before: false,
-            after: true
-        }],
+      "no-useless-computed-key": [
+        "error",
+        {
+          enforceForClassMembers: true,
+        },
+      ],
 
-        'no-class-assign': 'error',
+      "no-useless-constructor": "off",
 
-        'no-confusing-arrow': ['error', {
-            allowParens: true,
-        }],
+      "@typescript-eslint/no-useless-constructor": "error",
 
-        'no-const-assign': 'off',
+      "no-useless-rename": [
+        "error",
+        {
+          ignoreDestructuring: false,
+          ignoreImport: false,
+          ignoreExport: false,
+        },
+      ],
 
-        'no-dupe-class-members': 'off',
+      "no-var": "error",
 
-        '@typescript-eslint/no-dupe-class-members': 'off',
+      "object-shorthand": [
+        "error",
+        "always",
+        {
+          ignoreConstructors: false,
+          avoidQuotes: true,
+          avoidExplicitReturnArrows: false,
+        },
+      ],
 
-        'no-duplicate-imports': 'error',
+      "prefer-arrow-callback": [
+        "error",
+        {
+          allowNamedFunctions: false,
+          allowUnboundThis: true,
+        },
+      ],
 
-        'no-new-symbol': 'error',
+      "prefer-const": [
+        "error",
+        {
+          destructuring: "any",
+          ignoreReadBeforeAssign: true,
+        },
+      ],
 
-        'no-restricted-exports': ['error', {
-            restrictedNamedExports: [
-                'default', // use `export default` to provide a default export
-                'then', // this will cause tons of confusion when your module is dynamically `import()`ed, and will break in most node ESM versions
-            ],
-        }],
+      "prefer-destructuring": "off",
 
-        'no-restricted-imports': 'off',
+      "prefer-numeric-literals": "error",
 
-        'no-this-before-super': 'error',
+      "prefer-reflect": "off",
 
-        'no-useless-computed-key': ['error', {
-            enforceForClassMembers: true
-        }],
+      "prefer-rest-params": "error",
 
-        'no-useless-constructor': 'off',
+      "prefer-spread": "error",
 
-        '@typescript-eslint/no-useless-constructor': 'error',
+      "prefer-template": "error",
 
-        'no-useless-rename': ['error', {
-            ignoreDestructuring: false,
-            ignoreImport: false,
-            ignoreExport: false,
-        }],
+      "require-yield": "error",
 
-        'no-var': 'error',
+      "rest-spread-spacing": ["error", "never"],
 
-        'object-shorthand': ['error', 'always', {
-            ignoreConstructors: false,
-            avoidQuotes: true,
-            avoidExplicitReturnArrows: false
-        }],
+      "sort-imports": [
+        "error",
+        {
+          ignoreCase: false,
+          ignoreDeclarationSort: false,
+          ignoreMemberSort: false,
+          memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+          allowSeparatedGroups: false,
+        },
+      ],
 
-        'prefer-arrow-callback': ['error', {
-            allowNamedFunctions: false,
-            allowUnboundThis: true,
-        }],
+      "symbol-description": "error",
 
-        'prefer-const': ['error', {
-            destructuring: 'any',
-            ignoreReadBeforeAssign: true,
-        }],
+      "template-curly-spacing": ["error", "never"],
 
-        'prefer-destructuring': 'off',
+      "yield-star-spacing": ["error", "after"],
 
-        'prefer-numeric-literals': 'error',
+      "callback-return": "off",
 
-        'prefer-reflect': 'off',
+      "global-require": "error",
 
-        'prefer-rest-params': 'error',
+      "handle-callback-err": "off",
 
-        'prefer-spread': 'error',
+      "no-buffer-constructor": "error",
 
-        'prefer-template': 'error',
+      "no-mixed-requires": "off",
 
-        'require-yield': 'error',
+      "no-new-require": "error",
 
-        'rest-spread-spacing': ['error', 'never'],
+      "no-path-concat": "error",
 
-        'sort-imports': ['error', {
-            ignoreCase: false,
-            ignoreDeclarationSort: false,
-            ignoreMemberSort: false,
-            memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-            allowSeparatedGroups: false
-        }],
+      "no-process-env": "off",
 
-        'symbol-description': 'error',
+      "no-process-exit": "off",
 
-        'template-curly-spacing': ['error', 'never'],
+      "no-restricted-modules": "off",
 
-        'yield-star-spacing': ['error', 'after'],
+      "no-sync": "off",
 
-        'callback-return': 'off',
+      strict: ["error", "never"],
 
-        'global-require': 'error',
+      "array-bracket-newline": "off",
 
-        'handle-callback-err': 'off',
+      "array-element-newline": "off",
 
-        'no-buffer-constructor': 'error',
+      "array-bracket-spacing": ["error", "never"],
 
-        'no-mixed-requires': 'off',
+      "block-spacing": ["error", "always"],
 
-        'no-new-require': 'error',
+      "brace-style": "off",
 
-        'no-path-concat': 'error',
+      "@stylistic/ts/brace-style": [
+        "error",
+        "1tbs",
+        {
+          allowSingleLine: false,
+        },
+      ],
 
-        'no-process-env': 'off',
+      camelcase: "off",
 
-        'no-process-exit': 'off',
+      "@typescript-eslint/naming-convention": [
+        "error",
+        // Allow camelCase variables (23.2), PascalCase variables (23.8), and UPPER_CASE variables (23.10)
+        {
+          selector: "variable",
+          format: ["camelCase", "PascalCase", "UPPER_CASE"],
+        },
+        // Allow camelCase functions (23.2), and PascalCase functions (23.8)
+        {
+          selector: "function",
+          format: ["camelCase", "PascalCase"],
+        },
+        // Airbnb recommends PascalCase for classes (23.3), and although Airbnb does not make TypeScript recommendations, we are assuming this rule would similarly apply to anything "type like", including interfaces, type aliases, and enums
+        {
+          selector: "typeLike",
+          format: ["PascalCase"],
+        },
+      ],
 
-        'no-restricted-modules': 'off',
+      "capitalized-comments": "off",
 
-        'no-sync': 'off',
+      "comma-dangle": "off",
 
-        strict: ['error', 'never'],
+      "@stylistic/ts/comma-dangle": [
+        "error",
+        {
+          arrays: "always-multiline",
+          objects: "always-multiline",
+          imports: "always-multiline",
+          exports: "always-multiline",
+          functions: "always-multiline",
+          enums: "always-multiline",
+          generics: "always-multiline",
+          tuples: "always-multiline",
+        },
+      ],
 
-        'array-bracket-newline': 'off',
+      "comma-spacing": "off",
 
-        'array-element-newline': 'off',
+      "@stylistic/ts/comma-spacing": [
+        "error",
+        {
+          before: false,
+          after: true,
+        },
+      ],
 
-        'array-bracket-spacing': ['error', 'never'],
+      "comma-style": [
+        "error",
+        "last",
+        {
+          exceptions: {
+            ArrayExpression: false,
+            ArrayPattern: false,
+            ArrowFunctionExpression: false,
+            CallExpression: false,
+            FunctionDeclaration: false,
+            FunctionExpression: false,
+            ImportDeclaration: false,
+            ObjectExpression: false,
+            ObjectPattern: false,
+            VariableDeclaration: false,
+            NewExpression: false,
+          },
+        },
+      ],
 
-        'block-spacing': ['error', 'always'],
+      "computed-property-spacing": ["error", "never"],
 
-        'brace-style': 'off',
+      "consistent-this": "off",
 
-        '@typescript-eslint/brace-style': ['error', '1tbs', {
-            allowSingleLine: false
-        }],
+      "eol-last": ["error", "always"],
 
-        camelcase: 'off',
+      "function-call-argument-newline": ["error", "consistent"],
 
-        '@typescript-eslint/naming-convention': [
-            'error',
-            // Allow camelCase variables (23.2), PascalCase variables (23.8), and UPPER_CASE variables (23.10)
-            {
-                selector: 'variable',
-                format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-            },
-            // Allow camelCase functions (23.2), and PascalCase functions (23.8)
-            {
-                selector: 'function',
-                format: ['camelCase', 'PascalCase'],
-            },
-            // Airbnb recommends PascalCase for classes (23.3), and although Airbnb does not make TypeScript recommendations, we are assuming this rule would similarly apply to anything "type like", including interfaces, type aliases, and enums
-            {
-                selector: 'typeLike',
-                format: ['PascalCase'],
-            },
-        ],
+      "func-call-spacing": "off",
 
-        'capitalized-comments': 'off',
+      "@stylistic/ts/func-call-spacing": ["error", "never"],
 
-        'comma-dangle': 'off',
+      "func-name-matching": [
+        "error",
+        "always",
+        {
+          includeCommonJSModuleExports: false,
+          considerPropertyDescriptor: true,
+        },
+      ],
 
-        '@typescript-eslint/comma-dangle': ['error', {
-            arrays: 'always-multiline',
-            objects: 'always-multiline',
-            imports: 'always-multiline',
-            exports: 'always-multiline',
-            functions: 'always-multiline',
-            enums: 'always-multiline',
-            generics: 'always-multiline',
-            tuples: 'always-multiline',
-        }],
+      "func-names": [
+        "error",
+        "as-needed",
+        {
+          generators: "as-needed",
+        },
+      ],
 
-        'comma-spacing': 'off',
+      "func-style": "off",
 
-        '@typescript-eslint/comma-spacing': ['error', {
-            before: false, after: true
-        }],
+      "function-paren-newline": ["error", "multiline-arguments"],
 
-        'comma-style': ['error', 'last', {
-            exceptions: {
-                ArrayExpression: false,
-                ArrayPattern: false,
-                ArrowFunctionExpression: false,
-                CallExpression: false,
-                FunctionDeclaration: false,
-                FunctionExpression: false,
-                ImportDeclaration: false,
-                ObjectExpression: false,
-                ObjectPattern: false,
-                VariableDeclaration: false,
-                NewExpression: false,
-            }
-        }],
+      "id-denylist": "off",
 
-        'computed-property-spacing': ['error', 'never'],
+      "id-length": "off",
 
-        'consistent-this': 'off',
+      "id-match": "off",
 
-        'eol-last': ['error', 'always'],
+      "implicit-arrow-linebreak": ["error", "beside"],
 
-        'function-call-argument-newline': ['error', 'consistent'],
+      indent: "off",
 
-        'func-call-spacing': 'off',
+      "@stylistic/ts/indent": [
+        "error",
+        2,
+        {
+          SwitchCase: 1,
+          VariableDeclarator: 1,
+          outerIIFEBody: 1,
+          FunctionDeclaration: {
+            parameters: 1,
+            body: 1,
+          },
+          FunctionExpression: {
+            parameters: 1,
+            body: 1,
+          },
+          CallExpression: {
+            arguments: 1,
+          },
+          ArrayExpression: 1,
+          ObjectExpression: 1,
+          ImportDeclaration: 1,
+          flatTernaryExpressions: false,
+          // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
+          ignoredNodes: [
+            "JSXElement",
+            "JSXElement > *",
+            "JSXAttribute",
+            "JSXIdentifier",
+            "JSXNamespacedName",
+            "JSXMemberExpression",
+            "JSXSpreadAttribute",
+            "JSXExpressionContainer",
+            "JSXOpeningElement",
+            "JSXClosingElement",
+            "JSXFragment",
+            "JSXOpeningFragment",
+            "JSXClosingFragment",
+            "JSXText",
+            "JSXEmptyExpression",
+            "JSXSpreadChild",
+          ],
+          ignoreComments: false,
+        },
+      ],
 
-        '@typescript-eslint/func-call-spacing': ['error', 'never'],
+      "jsx-quotes": ["error", "prefer-single"],
 
-        'func-name-matching': ['error', 'always', {
-            includeCommonJSModuleExports: false,
-            considerPropertyDescriptor: true,
-        }],
+      "key-spacing": [
+        "error",
+        {
+          beforeColon: false,
+          afterColon: true,
+          mode: "strict",
+        },
+      ],
 
-        'func-names': ['error', 'as-needed', {
-            generators: 'as-needed'
-        }],
+      "keyword-spacing": "off",
 
-        'func-style': 'off',
+      "@stylistic/ts/keyword-spacing": [
+        "error",
+        {
+          before: true,
+          after: true,
+        },
+      ],
 
-        'function-paren-newline': ['error', 'multiline-arguments'],
+      "line-comment-position": "off",
 
-        'id-denylist': 'off',
+      "linebreak-style": ["error", "unix"],
 
-        'id-length': 'off',
+      "lines-between-class-members": "off",
 
-        'id-match': 'off',
+      "@stylistic/ts/lines-between-class-members": [
+        "error",
+        "always",
+        {
+          exceptAfterSingleLine: false,
+        },
+      ],
 
-        'implicit-arrow-linebreak': ['error', 'beside'],
+      "lines-around-comment": "off",
 
-        indent: 'off',
+      "lines-around-directive": [
+        "error",
+        {
+          before: "always",
+          after: "always",
+        },
+      ],
 
-        '@typescript-eslint/indent': ['error', 2, {
-            SwitchCase: 1,
-            VariableDeclarator: 1,
-            outerIIFEBody: 1,
-            FunctionDeclaration: {
-                parameters: 1,
-                body: 1
-            },
-            FunctionExpression: {
-                parameters: 1,
-                body: 1
-            },
-            CallExpression: {
-                arguments: 1
-            },
-            ArrayExpression: 1,
-            ObjectExpression: 1,
-            ImportDeclaration: 1,
-            flatTernaryExpressions: false,
-            // list derived from https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
-            ignoredNodes: ['JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXFragment', 'JSXOpeningFragment', 'JSXClosingFragment', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
-            ignoreComments: false
-        }],
+      "logical-assignment-operators": "off",
 
-        'jsx-quotes': ['error', 'prefer-double'],
+      "max-depth": "off",
 
-        'key-spacing': ['error', {
-            beforeColon: false,
-            afterColon: true,
-            mode: "strict"
-        }],
+      "max-len": [
+        "error",
+        100,
+        2,
+        {
+          ignoreUrls: true,
+          ignoreComments: false,
+          ignoreRegExpLiterals: true,
+          ignoreStrings: true,
+          ignoreTemplateLiterals: true,
+        },
+      ],
 
-        'keyword-spacing': 'off',
+      "max-lines": "off",
 
-        '@typescript-eslint/keyword-spacing': ['error', {
-            before: true,
-            after: true,
-        }],
+      "max-lines-per-function": "off",
 
-        'line-comment-position': 'off',
+      "max-nested-callbacks": "off",
 
-        'linebreak-style': ['error', 'unix'],
+      "max-params": "off",
 
-        'lines-between-class-members': 'off',
+      "max-statements": "off",
 
-        '@typescript-eslint/lines-between-class-members': ['error', 'always', {
-            exceptAfterSingleLine: false
-        }],
+      "max-statements-per-line": [
+        "off",
+        {
+          max: 1,
+        },
+      ],
 
-        'lines-around-comment': 'off',
+      "multiline-comment-style": ["error", "starred-block"],
 
-        'lines-around-directive': ['error', {
-            before: 'always',
-            after: 'always',
-        }],
+      "multiline-ternary": "off",
 
-        'logical-assignment-operators': 'off',
+      "new-cap": [
+        "error",
+        {
+          newIsCap: true,
+          newIsCapExceptions: [],
+          capIsNew: true,
+          capIsNewExceptions: [
+            "Immutable.Map",
+            "Immutable.Set",
+            "Immutable.List",
+          ],
+          properties: true,
+        },
+      ],
 
-        'max-depth': 'off',
+      "new-parens": ["error", "always"],
 
-        'max-len': ['error', 100, 2, {
-            ignoreUrls: true,
-            ignoreComments: false,
-            ignoreRegExpLiterals: true,
-            ignoreStrings: true,
-            ignoreTemplateLiterals: true,
-        }],
+      "newline-after-var": "off",
 
-        'max-lines': 'off',
+      "newline-before-return": "off",
 
-        'max-lines-per-function': 'off',
+      "newline-per-chained-call": [
+        "error",
+        {
+          ignoreChainWithDepth: 4,
+        },
+      ],
 
-        'max-nested-callbacks': 'off',
+      "no-array-constructor": "off",
 
-        'max-params': 'off',
+      "@typescript-eslint/no-array-constructor": "error",
 
-        'max-statements': 'off',
-
-        'max-statements-per-line': ['off', {
-            max: 1
-        }],
-
-        'multiline-comment-style': ['error', 'starred-block'],
-
-        'multiline-ternary': 'off',
-
-        'new-cap': ['error', {
-            newIsCap: true,
-            newIsCapExceptions: [],
-            capIsNew: true,
-            capIsNewExceptions: ['Immutable.Map', 'Immutable.Set', 'Immutable.List'],
-            properties: true
-        }],
-
-        'new-parens': ['error', 'always'],
-
-        'newline-after-var': 'off',
-
-        'newline-before-return': 'off',
-
-        'newline-per-chained-call': ['error', {
-            ignoreChainWithDepth: 4
-        }],
-
-        'no-array-constructor': 'off',
-
-        '@typescript-eslint/no-array-constructor': 'error',
-
-        'no-bitwise': 'error',
-
-        'no-continue': 'error',
-
-        'no-inline-comments': 'off',
-
-        'no-lonely-if': 'error',
-
-        'no-mixed-operators': ['error', {
-            groups: [
-                ['%', '**'],
-                ['%', '+'],
-                ['%', '-'],
-                ['%', '*'],
-                ['%', '/'],
-                ['/', '*'],
-                ['&', '|', '<<', '>>', '>>>'],
-                ['==', '!=', '===', '!=='],
-                ['&&', '||'],
-            ],
-            allowSamePrecedence: false
-        }],
-
-        'no-mixed-spaces-and-tabs': 'error',
-
-        'no-multi-assign': ['error', {
-            ignoreNonDeclaration: false
-        }],
-
-        'no-multiple-empty-lines': ['error', {
-            max: 2,
-            maxBOF: 0,
-            maxEOF: 1
-        }],
-
-        'no-negated-condition': 'off',
-
-        'no-nested-ternary': 'warn',
-
-        'no-new-object': 'error',
-
-        'no-plusplus': 'off',
-
-        'no-restricted-syntax': [
-            'error',
-            {
-                selector: 'ForInStatement',
-                message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
-            },
-            {
-                selector: 'ForOfStatement',
-                message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
-            },
-            {
-                selector: 'LabeledStatement',
-                message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
-            },
-            {
-                selector: 'WithStatement',
-                message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
-            },
-        ],
-
-        'no-spaced-func': 'off',
-
-        'no-tabs': ['error', {
-            allowIndentationTabs: false
-        }],
-
-        'no-ternary': 'off',
-
-        'no-trailing-spaces': ['error', {
-            skipBlankLines: false,
-            ignoreComments: false,
-        }],
-
-        'no-underscore-dangle': ['error', {
-            allow: [],
-            allowAfterThis: false,
-            allowAfterSuper: false,
-            allowAfterThisConstructor: false,
-            enforceInMethodNames: true,
-            enforceInClassFields: true,
-            allowFunctionParams: false
-        }],
-
-        'no-unneeded-ternary': ['error', {
-            defaultAssignment: true
-        }],
-
-        'no-whitespace-before-property': 'error',
-
-        'nonblock-statement-body-position': ['error', 'below'],
-
-        'object-curly-spacing': 'off',
-
-        '@typescript-eslint/object-curly-spacing': ['error', 'always'],
-
-        'object-curly-newline': ['error', {
-            ObjectExpression: {
-                minProperties: 4,
-                multiline: true,
-                consistent: true
-            },
-            ObjectPattern: {
-                minProperties: 4,
-                multiline: true,
-                consistent: true
-            },
-            ImportDeclaration: {
-                minProperties: 4,
-                multiline: true,
-                consistent: true
-            },
-            ExportDeclaration: {
-                minProperties: 4,
-                multiline: true,
-                consistent: true
-            },
-        }],
-
-        'object-property-newline': ['error', {
-            allowAllPropertiesOnSameLine: true,
-        }],
-
-        'one-var': ['error', 'never'],
-
-        'one-var-declaration-per-line': ['error', 'always'],
-
-        'operator-assignment': 'off',
-
-        'operator-linebreak': ['error', 'before', {
-            overrides: {
-                '=': 'none'
-            }
-        }],
-
-        'padded-blocks': ['error', {
-            blocks: 'never',
-            classes: 'never',
-            switches: 'never',
-        }],
-
-        'padding-line-between-statements': 'off',
-
-        'prefer-exponentiation-operator': 'off',
-
-        'prefer-object-spread': 'error',
-
-        'quote-props': ['error', 'as-needed', {
-            keywords: false,
-            unnecessary: true,
-            numbers: false
-        }],
-
-        quotes: 'off',
-
-        '@typescript-eslint/quotes': ['error', 'double', {
-            avoidEscape: true,
-            allowTemplateLiterals: false
-        }],
-
-        'require-jsdoc': 'off',
-
-        semi: 'off',
-
-        '@typescript-eslint/semi': ['error', 'always'],
-
-        'semi-spacing': ['error', {
-            before: false,
-            after: true
-        }],
-
-        'semi-style': ['error', 'last'],
-
-        'sort-keys': 'off',
-
-        'sort-vars': 'off',
-
-        'space-before-blocks': 'off',
-
-        '@typescript-eslint/space-before-blocks': ['error', 'always'],
-
-        'space-before-function-paren': 'off',
-
-        '@typescript-eslint/space-before-function-paren': ['error', {
-            anonymous: 'always',
-            named: 'never',
-            asyncArrow: 'always'
-        }],
-
-        'space-in-parens': ['error', 'never'],
-
-        'space-infix-ops': 'off',
-
-        '@typescript-eslint/space-infix-ops': ['error', {
-            int32Hint: false
-        }],
-
-        'space-unary-ops': ['error', {
-            words: true,
-            nonwords: false,
-            overrides: {},
-        }],
-
-        'spaced-comment': ['error', 'always', {
-            line: {
-                exceptions: ['-', '+'],
-                markers: ['=', '!', '/'], // space here to support sprockets directives, slash for TS /// comments
-            },
-            block: {
-                exceptions: ['-', '+'],
-                markers: ['=', '!', ':', '::'], // space here to support sprockets directives and flow comment types
-                balanced: true,
-            }
-        }],
-
-        'switch-colon-spacing': ['error', {
-            after: true,
-            before: false
-        }],
-
-        'template-tag-spacing': ['error', 'never'],
-
-        'unicode-bom': ['error', 'never'],
-
-        'wrap-regex': 'off',
-
-        'init-declarations': 'off',
-
-        'no-catch-shadow': 'off',
-
-        'no-delete-var': 'error',
-
-        'no-label-var': 'error',
-
-        'no-restricted-globals': [
-            'error',
-            {
-                name: 'isFinite',
-                message:
-                    'Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite',
-            },
-            {
-                name: 'isNaN',
-                message:
-                    'Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan',
-            },
-        ],
-
-        'no-shadow': 'off',
-
-        '@typescript-eslint/no-shadow': ['error', {
-            builtinGlobals: true,
-            ignoreOnInitialization: false,
-            allow: [],
-            hoist: "functions"
-
-        }],
-
-        'no-shadow-restricted-names': 'error',
-
-        'no-undef': 'off',
-
-        'no-undef-init': 'error',
-
-        'no-undefined': 'off',
-
-        'no-unused-vars': 'off',
-
-        '@typescript-eslint/no-unused-vars': ['error', {
-            vars: 'all',
-            args: 'after-used',
-            ignoreRestSiblings: true,
-            caughtErrors: "all",
-            caughtErrorsIgnorePattern: "^ignore$"
-        }],
-
-        'no-use-before-define': 'off',
-
-        '@typescript-eslint/no-use-before-define': 'off',
-
-        'no-new-native-nonconstructor': 'error'
-    }
-}
+      "no-bitwise": "error",
+
+      "no-continue": "error",
+
+      "no-inline-comments": "off",
+
+      "no-lonely-if": "error",
+
+      "no-mixed-operators": [
+        "error",
+        {
+          groups: [
+            ["%", "**"],
+            ["%", "+"],
+            ["%", "-"],
+            ["%", "*"],
+            ["%", "/"],
+            ["/", "*"],
+            ["&", "|", "<<", ">>", ">>>"],
+            ["==", "!=", "===", "!=="],
+            ["&&", "||"],
+          ],
+          allowSamePrecedence: false,
+        },
+      ],
+
+      "no-mixed-spaces-and-tabs": "error",
+
+      "no-multi-assign": [
+        "error",
+        {
+          ignoreNonDeclaration: false,
+        },
+      ],
+
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          max: 2,
+          maxBOF: 0,
+          maxEOF: 1,
+        },
+      ],
+
+      "no-negated-condition": "off",
+
+      "no-nested-ternary": "warn",
+
+      "no-new-object": "error",
+
+      "no-plusplus": "off",
+
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "ForInStatement",
+          message:
+            "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.",
+        },
+        {
+          selector: "ForOfStatement",
+          message:
+            "iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.",
+        },
+        {
+          selector: "LabeledStatement",
+          message:
+            "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.",
+        },
+        {
+          selector: "WithStatement",
+          message:
+            "`with` is disallowed in strict mode because it makes code impossible to predict and optimize.",
+        },
+      ],
+
+      "no-spaced-func": "off",
+
+      "no-tabs": [
+        "error",
+        {
+          allowIndentationTabs: false,
+        },
+      ],
+
+      "no-ternary": "off",
+
+      "no-trailing-spaces": [
+        "error",
+        {
+          skipBlankLines: false,
+          ignoreComments: false,
+        },
+      ],
+
+      "no-underscore-dangle": [
+        "error",
+        {
+          allow: [],
+          allowAfterThis: false,
+          allowAfterSuper: false,
+          allowAfterThisConstructor: false,
+          enforceInMethodNames: true,
+          enforceInClassFields: true,
+          allowFunctionParams: false,
+        },
+      ],
+
+      "no-unneeded-ternary": [
+        "error",
+        {
+          defaultAssignment: true,
+        },
+      ],
+
+      "no-whitespace-before-property": "error",
+
+      "nonblock-statement-body-position": ["error", "below"],
+
+      "object-curly-spacing": "off",
+
+      "@stylistic/ts/object-curly-spacing": ["error", "always"],
+
+      "object-curly-newline": [
+        "error",
+        {
+          ObjectExpression: {
+            minProperties: 4,
+            multiline: true,
+            consistent: true,
+          },
+          ObjectPattern: {
+            minProperties: 4,
+            multiline: true,
+            consistent: true,
+          },
+          ImportDeclaration: {
+            minProperties: 4,
+            multiline: true,
+            consistent: true,
+          },
+          ExportDeclaration: {
+            minProperties: 4,
+            multiline: true,
+            consistent: true,
+          },
+        },
+      ],
+
+      "object-property-newline": [
+        "error",
+        {
+          allowAllPropertiesOnSameLine: true,
+        },
+      ],
+
+      "one-var": ["error", "never"],
+
+      "one-var-declaration-per-line": ["error", "always"],
+
+      "operator-assignment": "off",
+
+      "operator-linebreak": [
+        "error",
+        "before",
+        {
+          overrides: {
+            "=": "none",
+          },
+        },
+      ],
+
+      "padded-blocks": [
+        "error",
+        {
+          blocks: "never",
+          classes: "never",
+          switches: "never",
+        },
+      ],
+
+      "padding-line-between-statements": "off",
+
+      "prefer-exponentiation-operator": "off",
+
+      "prefer-object-spread": "error",
+
+      "quote-props": [
+        "error",
+        "as-needed",
+        {
+          keywords: false,
+          unnecessary: true,
+          numbers: false,
+        },
+      ],
+
+      quotes: "off",
+
+      "@stylistic/ts/quotes": [
+        "error",
+        "single",
+        {
+          avoidEscape: true,
+          allowTemplateLiterals: false,
+        },
+      ],
+
+      "require-jsdoc": "off",
+
+      semi: "off",
+
+      "@stylistic/ts/semi": ["error", "always"],
+
+      "semi-spacing": [
+        "error",
+        {
+          before: false,
+          after: true,
+        },
+      ],
+
+      "semi-style": ["error", "last"],
+
+      "sort-keys": "off",
+
+      "sort-vars": "off",
+
+      "space-before-blocks": "off",
+
+      "@stylistic/ts/space-before-blocks": ["error", "always"],
+
+      "space-before-function-paren": "off",
+
+      "@stylistic/ts/space-before-function-paren": [
+        "error",
+        {
+          anonymous: "always",
+          named: "never",
+          asyncArrow: "always",
+        },
+      ],
+
+      "space-in-parens": ["error", "never"],
+
+      "space-infix-ops": "off",
+
+      "@stylistic/ts/space-infix-ops": [
+        "error",
+        {
+          int32Hint: false,
+        },
+      ],
+
+      "space-unary-ops": [
+        "error",
+        {
+          words: true,
+          nonwords: false,
+          overrides: {},
+        },
+      ],
+
+      "spaced-comment": [
+        "error",
+        "always",
+        {
+          line: {
+            exceptions: ["-", "+"],
+            markers: ["=", "!", "/"], // space here to support sprockets directives, slash for TS /// comments
+          },
+          block: {
+            exceptions: ["-", "+"],
+            markers: ["=", "!", ":", "::"], // space here to support sprockets directives and flow comment types
+            balanced: true,
+          },
+        },
+      ],
+
+      "switch-colon-spacing": [
+        "error",
+        {
+          after: true,
+          before: false,
+        },
+      ],
+
+      "template-tag-spacing": ["error", "never"],
+
+      "unicode-bom": ["error", "never"],
+
+      "wrap-regex": "off",
+
+      "init-declarations": "off",
+
+      "no-catch-shadow": "off",
+
+      "no-delete-var": "error",
+
+      "no-label-var": "error",
+
+      "no-restricted-globals": [
+        "error",
+        {
+          name: "isFinite",
+          message:
+            "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite",
+        },
+        {
+          name: "isNaN",
+          message:
+            "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan",
+        },
+      ],
+
+      "no-shadow": "off",
+
+      "@typescript-eslint/no-shadow": [
+        "error",
+        {
+          builtinGlobals: true,
+          ignoreOnInitialization: false,
+          allow: [],
+          hoist: "functions",
+        },
+      ],
+
+      "no-shadow-restricted-names": "error",
+
+      "no-undef": "off",
+
+      "no-undef-init": "error",
+
+      "no-undefined": "off",
+
+      "no-unused-vars": "off",
+
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          vars: "all",
+          args: "after-used",
+          ignoreRestSiblings: true,
+          caughtErrors: "all",
+          caughtErrorsIgnorePattern: "^ignore$",
+        },
+      ],
+
+      "no-use-before-define": "off",
+
+      "@typescript-eslint/no-use-before-define": "off",
+
+      "no-new-native-nonconstructor": "error",
+    },
+  },
+];
