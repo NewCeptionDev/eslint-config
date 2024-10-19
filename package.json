@@ -1,6 +1,6 @@
 {
   "name": "@newceptiondev/eslint-config",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "ESLint Config",
   "type": "module",
   "main": "index.js",
