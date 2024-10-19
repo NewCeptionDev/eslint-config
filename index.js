@@ -1180,7 +1180,7 @@ export default [
 
       semi: "off",
 
-      "@stylistic/ts/semi": ["error", "always"],
+      "@stylistic/ts/semi": ["error", "never"],
 
       "semi-spacing": [
         "error",
