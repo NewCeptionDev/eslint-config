@@ -3,12 +3,14 @@
 // The additional typescript config here: https://github.com/iamturns/eslint-config-airbnb-typescript
 
 import ts from "typescript-eslint";
+import stylistic from "@stylistic/eslint-plugin-ts";
 
 export default [
   {
-    files: ["*.ts", "*.tsx"],
+    files: ["**/*.ts", "**/*.tsx"],
     plugins: {
       "@typescript-eslint": ts.plugin,
+      "@stylistic/ts": stylistic,
     },
     languageOptions: {
       parser: ts.parser,
@@ -16,9 +18,6 @@ export default [
       parserOptions: {
         project: ["./tsconfig.json"],
       },
-    },
-    parserOptions: {
-      project: ["./tsconfig.json"],
     },
     rules: {
       "accessor-pairs": "off",
@@ -290,7 +289,7 @@ export default [
 
       "no-throw-literal": "off",
 
-      "@typescript-eslint/no-throw-literal": "error",
+      "@typescript-eslint/only-throw-error": "error",
 
       "no-unmodified-loop-condition": "error",
 
@@ -422,11 +421,11 @@ export default [
 
       "no-extra-parens": "off",
 
-      "@typescript-eslint/no-extra-parens": "off",
+      "@stylistic/ts/no-extra-parens": "off",
 
       "no-extra-semi": "off",
 
-      "@typescript-eslint/no-extra-semi": "error",
+      "@stylistic/ts/no-extra-semi": "error",
 
       "no-func-assign": "error",
 
@@ -689,7 +688,7 @@ export default [
 
       "brace-style": "off",
 
-      "@typescript-eslint/brace-style": [
+      "@stylistic/ts/brace-style": [
         "error",
         "1tbs",
         {
@@ -722,7 +721,7 @@ export default [
 
       "comma-dangle": "off",
 
-      "@typescript-eslint/comma-dangle": [
+      "@stylistic/ts/comma-dangle": [
         "error",
         {
           arrays: "always-multiline",
@@ -738,7 +737,7 @@ export default [
 
       "comma-spacing": "off",
 
-      "@typescript-eslint/comma-spacing": [
+      "@stylistic/ts/comma-spacing": [
         "error",
         {
           before: false,
@@ -776,7 +775,7 @@ export default [
 
       "func-call-spacing": "off",
 
-      "@typescript-eslint/func-call-spacing": ["error", "never"],
+      "@stylistic/ts/func-call-spacing": ["error", "never"],
 
       "func-name-matching": [
         "error",
@@ -809,7 +808,7 @@ export default [
 
       indent: "off",
 
-      "@typescript-eslint/indent": [
+      "@stylistic/ts/indent": [
         "error",
         2,
         {
@@ -867,7 +866,7 @@ export default [
 
       "keyword-spacing": "off",
 
-      "@typescript-eslint/keyword-spacing": [
+      "@stylistic/ts/keyword-spacing": [
         "error",
         {
           before: true,
@@ -881,7 +880,7 @@ export default [
 
       "lines-between-class-members": "off",
 
-      "@typescript-eslint/lines-between-class-members": [
+      "@stylistic/ts/lines-between-class-members": [
         "error",
         "always",
         {
@@ -1090,7 +1089,7 @@ export default [
 
       "object-curly-spacing": "off",
 
-      "@typescript-eslint/object-curly-spacing": ["error", "always"],
+      "@stylistic/ts/object-curly-spacing": ["error", "always"],
 
       "object-curly-newline": [
         "error",
@@ -1168,7 +1167,7 @@ export default [
 
       quotes: "off",
 
-      "@typescript-eslint/quotes": [
+      "@stylistic/ts/quotes": [
         "error",
         "single",
         {
@@ -1181,7 +1180,7 @@ export default [
 
       semi: "off",
 
-      "@typescript-eslint/semi": ["error", "always"],
+      "@stylistic/ts/semi": ["error", "always"],
 
       "semi-spacing": [
         "error",
@@ -1199,11 +1198,11 @@ export default [
 
       "space-before-blocks": "off",
 
-      "@typescript-eslint/space-before-blocks": ["error", "always"],
+      "@stylistic/ts/space-before-blocks": ["error", "always"],
 
       "space-before-function-paren": "off",
 
-      "@typescript-eslint/space-before-function-paren": [
+      "@stylistic/ts/space-before-function-paren": [
         "error",
         {
           anonymous: "always",
@@ -1216,7 +1215,7 @@ export default [
 
       "space-infix-ops": "off",
 
-      "@typescript-eslint/space-infix-ops": [
+      "@stylistic/ts/space-infix-ops": [
         "error",
         {
           int32Hint: false,
